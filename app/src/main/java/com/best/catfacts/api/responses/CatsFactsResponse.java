@@ -1,4 +1,4 @@
-package com.best.catfacts.api.response;
+package com.best.catfacts.api.responses;
 
 import com.best.catfacts.model.CatsFacts;
 

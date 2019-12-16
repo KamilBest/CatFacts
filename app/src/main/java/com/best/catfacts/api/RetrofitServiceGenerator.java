@@ -1,6 +1,6 @@
 package com.best.catfacts.api;
 
-import com.best.catfacts.api.service.CatsFactsService;
+import com.best.catfacts.api.service.CatFactsApi;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -26,9 +26,9 @@ public class RetrofitServiceGenerator {
         return interceptor;
     }
 
-    private static CatsFactsService catsFactsService = retrofit.create(CatsFactsService.class);
+    private static CatFactsApi catFactsApi = retrofit.create(CatFactsApi.class);
 
-    public static CatsFactsService getCatsFactsService() {
-        return catsFactsService;
+    public static CatFactsApi getCatFactsApi() {
+        return catFactsApi;
     }
 }

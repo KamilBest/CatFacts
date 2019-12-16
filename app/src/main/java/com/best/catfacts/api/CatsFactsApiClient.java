@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.best.catfacts.api.response.CatsFactsResponse;
+import com.best.catfacts.api.responses.CatsFactsResponse;
 import com.best.catfacts.model.CatsFacts;
 import com.best.catfacts.utils.AppExecutors;
 
@@ -89,7 +89,7 @@ public class CatsFactsApiClient {
         }
 
         private Call<CatsFactsResponse> getCatFacts(int limit) {
-            return RetrofitServiceGenerator.getCatsFactsService().catFactsList(limit);
+            return RetrofitServiceGenerator.getCatFactsApi().catFactsList(limit);
         }
 
         private void cancelRequest() {

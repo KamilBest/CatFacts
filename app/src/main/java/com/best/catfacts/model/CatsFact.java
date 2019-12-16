@@ -1,6 +1,6 @@
 package com.best.catfacts.model;
 
-public class CatsFacts {
+public class CatsFact {
 
     private String fact;
     private Long length;
@@ -8,14 +8,14 @@ public class CatsFacts {
     /**
      * No args constructor for use in serialization
      */
-    public CatsFacts() {
+    public CatsFact() {
     }
 
     /**
      * @param fact
      * @param length
      */
-    public CatsFacts(String fact, Long length) {
+    public CatsFact(String fact, Long length) {
         super();
         this.fact = fact;
         this.length = length;

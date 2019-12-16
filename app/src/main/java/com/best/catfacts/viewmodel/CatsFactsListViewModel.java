@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.best.catfacts.api.repository.CatsFactsRepository;
-import com.best.catfacts.model.CatsFacts;
+import com.best.catfacts.model.CatsFact;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class CatsFactsListViewModel extends ViewModel {
         catsFactsRepository = CatsFactsRepository.getInstance();
     }
 
-    public LiveData<List<CatsFacts>> getFacts() {
+    public LiveData<List<CatsFact>> getFacts() {
         return catsFactsRepository.getCatFacts();
     }
 

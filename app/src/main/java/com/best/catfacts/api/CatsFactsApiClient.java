@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.best.catfacts.api.responses.CatsFactsResponse;
-import com.best.catfacts.model.CatsFacts;
+import com.best.catfacts.model.CatsFact;
 import com.best.catfacts.utils.AppExecutors;
 
 import java.io.IOException;
@@ -21,7 +21,7 @@ import retrofit2.Response;
 public class CatsFactsApiClient {
     private static final String TAG = CatsFactsApiClient.class.getSimpleName();
     private static CatsFactsApiClient instance;
-    private MutableLiveData<List<CatsFacts>> listMutableLiveData;
+    private MutableLiveData<List<CatsFact>> listMutableLiveData;
     private RetrieveCatFactsRunnable retrieveCatFactsRunnable;
     public static final int NETWORK_TIMEOUT = 3000;
 
@@ -35,7 +35,7 @@ public class CatsFactsApiClient {
         listMutableLiveData = new MutableLiveData<>();
     }
 
-    public LiveData<List<CatsFacts>> getCatFacts() {
+    public LiveData<List<CatsFact>> getCatFacts() {
         return listMutableLiveData;
     }
 
@@ -75,7 +75,7 @@ public class CatsFactsApiClient {
                 if (cancelRequest)
                     return;
                 if (response.isSuccessful()) {
-                    List<CatsFacts> list = new ArrayList<>(((CatsFactsResponse) response.body()).getData());
+                    List<CatsFact> list = new ArrayList<>(((CatsFactsResponse) response.body()).getData());
                     listMutableLiveData.postValue(list);
                 } else {
                     String error = response.errorBody().string();

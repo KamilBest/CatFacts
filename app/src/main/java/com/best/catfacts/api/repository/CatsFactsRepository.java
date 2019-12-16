@@ -3,7 +3,7 @@ package com.best.catfacts.api.repository;
 import androidx.lifecycle.LiveData;
 
 import com.best.catfacts.api.CatsFactsApiClient;
-import com.best.catfacts.model.CatsFacts;
+import com.best.catfacts.model.CatsFact;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class CatsFactsRepository {
         catsFactsApiClient = CatsFactsApiClient.getInstance();
     }
 
-    public LiveData<List<CatsFacts>> getCatFacts() {
+    public LiveData<List<CatsFact>> getCatFacts() {
         return catsFactsApiClient.getCatFacts();
     }
 

@@ -1,13 +1,13 @@
 package com.best.catfacts.api.responses;
 
-import com.best.catfacts.model.CatsFacts;
+import com.best.catfacts.model.CatsFact;
 
 import java.util.List;
 
 public class CatsFactsResponse {
 
     private Long currentPage;
-    private List<CatsFacts> data = null;
+    private List<CatsFact> data = null;
     private String firstPageUrl;
     private Long from;
     private Long lastPage;
@@ -39,7 +39,7 @@ public class CatsFactsResponse {
      * @param currentPage
      * @param prevPageUrl
      */
-    public CatsFactsResponse(Long currentPage, List<CatsFacts> data, String firstPageUrl, Long from, Long lastPage, String lastPageUrl, String nextPageUrl, String path, String perPage, String prevPageUrl, Long to, Long total) {
+    public CatsFactsResponse(Long currentPage, List<CatsFact> data, String firstPageUrl, Long from, Long lastPage, String lastPageUrl, String nextPageUrl, String path, String perPage, String prevPageUrl, Long to, Long total) {
         super();
         this.currentPage = currentPage;
         this.data = data;
@@ -63,11 +63,11 @@ public class CatsFactsResponse {
         this.currentPage = currentPage;
     }
 
-    public List<CatsFacts> getData() {
+    public List<CatsFact> getData() {
         return data;
     }
 
-    public void setData(List<CatsFacts> data) {
+    public void setData(List<CatsFact> data) {
         this.data = data;
     }
 

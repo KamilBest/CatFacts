@@ -4,6 +4,7 @@ public class CatsFact {
 
     private String fact;
     private Long length;
+    private boolean isSelected = false;
 
     /**
      * No args constructor for use in serialization
@@ -35,6 +36,14 @@ public class CatsFact {
 
     public void setLength(Long length) {
         this.length = length;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 
     @Override

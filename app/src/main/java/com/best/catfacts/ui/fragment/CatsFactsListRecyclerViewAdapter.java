@@ -1,26 +1,28 @@
 package com.best.catfacts.ui.fragment;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.best.catfacts.R;
 import com.best.catfacts.model.CatsFact;
-import com.best.catfacts.ui.fragment.CatsFactsListFragment.OnListFragmentInteractionListener;
 
 import java.util.List;
 
 public class CatsFactsListRecyclerViewAdapter extends RecyclerView.Adapter<CatsFactsListRecyclerViewAdapter.ViewHolder> {
 
-    private final List<CatsFact> mValues;
-    private final OnListFragmentInteractionListener mListener;
+    private final List<CatsFact> catsFactList;
+    boolean[] selectedItems;
 
-    public CatsFactsListRecyclerViewAdapter(List<CatsFact> items, OnListFragmentInteractionListener listener) {
-        mValues = items;
-        mListener = listener;
+    public CatsFactsListRecyclerViewAdapter(List<CatsFact> items) {
+        catsFactList = items;
+        selectedItems = new boolean[items.size()];
+
     }
 
     @Override
@@ -32,40 +34,51 @@ public class CatsFactsListRecyclerViewAdapter extends RecyclerView.Adapter<CatsF
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mContentView.setText(mValues.get(position).getFact());
+        final CatsFact catsFact = catsFactList.get(position);
+        holder.catsFact = catsFactList.get(position);
+        holder.fact.setText(catsFactList.get(position).getFact());
 
-        holder.mView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
-                }
+        if(selectedItems[position]==true){
+            holder.cardView.setCardBackgroundColor(Color.CYAN);
+        }else {
+            holder.cardView.setCardBackgroundColor(Color.WHITE);
+        }
+
+        holder.view.setOnClickListener(v -> {
+            if(catsFact.isSelected())
+            {
+                holder.cardView.setCardBackgroundColor(Color.WHITE);
+                selectedItems[position]=false;
             }
+            else {
+                holder.cardView.setCardBackgroundColor(Color.CYAN);
+                selectedItems[position]=true;
+            }
+            catsFact.setSelected(!catsFact.isSelected());
         });
     }
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return catsFactList == null ? 0 : catsFactList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mContentView;
-        public CatsFact mItem;
+        public final View view;
+        public final CardView cardView;
+        public final TextView fact;
+        public CatsFact catsFact;
 
         public ViewHolder(View view) {
             super(view);
-            mView = view;
-            mContentView = (TextView) view.findViewById(R.id.content);
+            this.view = view;
+            this.cardView = view.findViewById(R.id.card_view);
+            fact = view.findViewById(R.id.content);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + fact.getText() + "'";
         }
     }
 }

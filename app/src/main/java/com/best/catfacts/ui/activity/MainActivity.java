@@ -17,7 +17,7 @@ import com.google.android.material.tabs.TabLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements CatsFactsListFragment.OnListFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     @BindView(R.id.view_pager)
@@ -38,11 +38,5 @@ public class MainActivity extends AppCompatActivity implements CatsFactsListFrag
         TabsPagerAdapter tabsPagerAdapter = new TabsPagerAdapter(this, getSupportFragmentManager());
         viewPager.setAdapter(tabsPagerAdapter);
         tabs.setupWithViewPager(viewPager);
-    }
-
-
-    @Override
-    public void onListFragmentInteraction(CatsFact catsFact) {
-
     }
 }

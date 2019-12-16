@@ -86,7 +86,7 @@ public class CatsFactsListFragment extends Fragment {
     }
 
     private void setupSwipeRefreshLayout() {
-        setupItemTouchHelper();
+       // setupItemTouchHelper();
         swipeRefreshLayout.setOnRefreshListener(() -> {
             getCatsFactsListApi(NUMBER_OF_RECORDS);
             swipeRefreshLayout.setRefreshing(false);

@@ -3,4 +3,6 @@
 
     <string name="tab_text_1">Cats Facts</string>
     <string name="tab_text_2">Your favourite</string>
+
+    <string name="fcm_message">fcm_message</string>
 </resources>

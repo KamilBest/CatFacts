@@ -20,10 +20,10 @@ import retrofit2.Response;
 
 public class CatsFactsApiClient {
     private static final String TAG = CatsFactsApiClient.class.getSimpleName();
+    public static final int NETWORK_TIMEOUT = 3000;
     private static CatsFactsApiClient instance;
     private MutableLiveData<List<CatsFact>> listMutableLiveData;
     private RetrieveCatFactsRunnable retrieveCatFactsRunnable;
-    public static final int NETWORK_TIMEOUT = 3000;
 
     public static CatsFactsApiClient getInstance() {
         if (instance == null)
@@ -39,7 +39,7 @@ public class CatsFactsApiClient {
         return listMutableLiveData;
     }
 
-    public void searchCatFactsApi(int limit) {
+    public void getCatsFactsListApi(int limit) {
         if (retrieveCatFactsRunnable != null)
             retrieveCatFactsRunnable = null;
         retrieveCatFactsRunnable = new RetrieveCatFactsRunnable(limit);
@@ -57,23 +57,15 @@ public class CatsFactsApiClient {
     private class RetrieveCatFactsRunnable implements Runnable {
 
         private int limit;
-        boolean cancelRequest;
-
-        public RetrieveCatFactsRunnable() {
-            cancelRequest = false;
-        }
 
         public RetrieveCatFactsRunnable(int limit) {
             this.limit = limit;
-            cancelRequest = false;
         }
 
         @Override
         public void run() {
             try {
                 Response response = getCatFacts(limit).execute();
-                if (cancelRequest)
-                    return;
                 if (response.isSuccessful()) {
                     List<CatsFact> list = new ArrayList<>(((CatsFactsResponse) response.body()).getData());
                     listMutableLiveData.postValue(list);
@@ -90,11 +82,6 @@ public class CatsFactsApiClient {
 
         private Call<CatsFactsResponse> getCatFacts(int limit) {
             return RetrofitServiceGenerator.getCatFactsApi().catFactsList(limit);
-        }
-
-        private void cancelRequest() {
-            Log.d(TAG, "Canceling request");
-            cancelRequest = true;
         }
     }
 }

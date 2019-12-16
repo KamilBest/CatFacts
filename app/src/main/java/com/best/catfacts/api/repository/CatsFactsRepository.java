@@ -27,6 +27,6 @@ public class CatsFactsRepository {
 
     public void searchCatFactsApi(int limit)
     {
-        catsFactsApiClient.searchCatFactsApi(limit);
+        catsFactsApiClient.getCatsFactsListApi(limit);
     }
 }

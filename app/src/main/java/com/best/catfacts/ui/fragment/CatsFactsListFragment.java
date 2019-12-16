@@ -2,6 +2,7 @@ package com.best.catfacts.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,33 +36,25 @@ public class CatsFactsListFragment extends Fragment {
     public CatsFactsListFragment() {
     }
 
-    public static CatsFactsListFragment newInstance() {
-        CatsFactsListFragment fragment = new CatsFactsListFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         catsFactsListViewModel = ViewModelProviders.of(this).get(CatsFactsListViewModel.class);
         subscribeObservers();
-        catsFactsListViewModel.searchCatFactsApi(10);
+        final int NUMBER_OF_RECORDS = 100; //TODO: change to all with pagination
+        catsFactsListViewModel.searchCatFactsApi(NUMBER_OF_RECORDS);
     }
 
-    private void searchCatFactsApi(int limit) {
+    private void getCatsFactsListApi(int limit) {
         catsFactsListViewModel.searchCatFactsApi(limit);
     }
 
 
     private void subscribeObservers() {
-        catsFactsListViewModel.getFacts().observe(this, new Observer<List<CatsFact>>() {
-            @Override
-            public void onChanged(List<CatsFact> catsFactList) {
-                if (catsFactList != null) {
-                        recyclerView.setAdapter(new CatsFactsListRecyclerViewAdapter(catsFactList, mListener));
-                }
+        catsFactsListViewModel.getFacts().observe(this, catsFactList -> {
+            if (catsFactList != null) {
+                recyclerView.setAdapter(new CatsFactsListRecyclerViewAdapter(catsFactList, mListener));
+                Log.d(TAG, catsFactList.toString());
             }
         });
     }

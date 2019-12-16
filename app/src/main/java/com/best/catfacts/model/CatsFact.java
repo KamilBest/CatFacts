@@ -36,4 +36,12 @@ public class CatsFact {
     public void setLength(Long length) {
         this.length = length;
     }
+
+    @Override
+    public String toString() {
+        return "CatsFact{" +
+                "fact='" + fact + '\'' +
+                ", length=" + length +
+                '}';
+    }
 }

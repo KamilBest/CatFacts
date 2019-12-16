@@ -1,4 +1,4 @@
-package com.best.catfacts.ui;
+package com.best.catfacts.ui.activity.tabs;
 
 import android.content.Context;
 
@@ -9,7 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.best.catfacts.R;
-import com.best.catfacts.ui.fragment.CatsFactsListFragment;
+import com.best.catfacts.ui.fragment.cats_facts_list.CatsFactsListFragment;
+import com.best.catfacts.ui.fragment.favourites_cats_fact.FavouriteCatsFactsListFragment;
 
 public class TabsPagerAdapter extends FragmentPagerAdapter {
     private final int NUMBER_OF_TABS = 2;
@@ -29,7 +30,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new CatsFactsListFragment();
             case 1:
-                return new CatsFactsListFragment();
+                return new FavouriteCatsFactsListFragment();
             default:
                 return null;
         }

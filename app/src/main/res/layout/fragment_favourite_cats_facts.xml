@@ -9,9 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <androidx.recyclerview.widget.RecyclerView xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/facts_list"
             android:name="com.best.catfacts.ui.fragment.CatsFactsListFragment"
             android:layout_width="match_parent"
@@ -23,16 +21,4 @@
             tools:context=".ui.fragment.cats_facts_list.CatsFactsListFragment"
             tools:listitem="@layout/item_cats_facts_list" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_to_favourites_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="12dp"
-            android:layout_marginBottom="12dp"
-            android:clickable="true"
-            app:backgroundTint="@color/colorPrimary"
-            app:srcCompat="@android:drawable/ic_input_add" />
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.best.catfacts.ui.fragment;
+package com.best.catfacts.ui.fragment.cats_facts_list;
 
 import android.graphics.Color;
 import android.view.LayoutInflater;

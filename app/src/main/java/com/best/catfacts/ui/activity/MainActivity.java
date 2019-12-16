@@ -2,16 +2,12 @@ package com.best.catfacts.ui.activity;
 
 
 import android.os.Bundle;
-import android.widget.RelativeLayout;
-import android.widget.TableLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.best.catfacts.R;
-import com.best.catfacts.model.CatsFact;
-import com.best.catfacts.ui.TabsPagerAdapter;
-import com.best.catfacts.ui.fragment.CatsFactsListFragment;
+import com.best.catfacts.ui.activity.tabs.TabsPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 import butterknife.BindView;

@@ -6,8 +6,9 @@
     android:name="com.best.catfacts.ui.fragment.CatsFactsListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:padding="12dp"
     app:layoutManager="LinearLayoutManager"
     tools:context=".ui.fragment.CatsFactsListFragment"
-    tools:listitem="@layout/fragment_catsfactslist" />
+    tools:listitem="@layout/item_cats_facts_list" />

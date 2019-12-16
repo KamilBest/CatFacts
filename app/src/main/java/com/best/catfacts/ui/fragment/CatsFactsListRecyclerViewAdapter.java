@@ -26,7 +26,7 @@ public class CatsFactsListRecyclerViewAdapter extends RecyclerView.Adapter<CatsF
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_catsfactslist, parent, false);
+                .inflate(R.layout.item_cats_facts_list, parent, false);
         return new ViewHolder(view);
     }
 

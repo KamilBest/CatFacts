@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,8 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.best.catfacts.R;
 import com.best.catfacts.model.CatsFact;
 import com.best.catfacts.viewmodel.CatsFactsListViewModel;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,7 +59,7 @@ public class CatsFactsListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_catsfactslist_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_cats_facts_list, container, false);
         bindButterknife(view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return view;
